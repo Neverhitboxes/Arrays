@@ -1,7 +1,7 @@
 import java.util.Arrays;
 public class Statistics {
-	double []data;
-	double []sdata;
+	private double []data;
+	private double []sdata;
 	public Statistics (double[] d){
 	//array copy
 		data = new double [d.length];
@@ -21,12 +21,32 @@ public class Statistics {
 }
 	public double findMean (){
 		double sum=0, avg;
-		for (int i=0; i>sdata.length; sum= sum + sdata[i]);
+		for (int i=0; i<sdata.length;i++)
+			sum= sum + sdata[i];
 		avg = sum / sdata.length;
 		return avg;
 }
 	public double findMedian(){
-		return 0;}
+		int index,indexHi,indexLo;
+		double median;
+		if((sdata.length %2)!=0)
+		{index= sdata.length /2;
+		median= sdata[index];
+		}
+		else{
+			indexHi= sdata.length /2;
+			indexLo= indexHi -1;
+			median= (sdata[indexLo]+sdata[indexHi])/2;
+		}
+		return median;
+}
+	public double[] getSortedData(){
+		return sdata;
+	}
+	
+	public double[] getOrigData(){
+		return data;
+	}
 
 }
 
